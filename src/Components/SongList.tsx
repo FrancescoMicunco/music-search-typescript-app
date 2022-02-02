@@ -3,12 +3,14 @@ import { ISongs } from '../Types/SongsType'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import {Table} from 'react-bootstrap'
-
+import { useNavigate } from 'react-router-dom'
 
 
  const SongList = ({search}:ISearch) => {
     const [songs, setSongs] = useState<ISongs[]>([])
 
+
+    const navigate = useNavigate()
 useEffect(()=>{getSong()}, [search])
 
 
@@ -46,7 +48,7 @@ useEffect(()=>{getSong()}, [search])
     <tr>
       <td>{s.preview}</td>
       <td>{s.artist.name}</td>
-      <td>{s.album.cover_small}</td>
+      <td onClick={()=>navigate('/detail')} style={{cursor:"pointer"}}>{s.album.cover_small}</td>
       <td>{s.title}</td>
     </tr>
     
