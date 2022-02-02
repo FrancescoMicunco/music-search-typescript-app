@@ -1,16 +1,20 @@
 import { ISearch } from '../Types/SongsType'
 import { ISongs } from '../Types/SongsType'
 import { useState } from 'react'
+import { useEffect } from 'react'
 
-interface search {
-    search: ISearch
-}
+// interface search {
+//     search: ISearch
+// }
 
 
 
 
 export const SongList = ({search}:ISearch) => {
     const [songs, setSongs] = useState<ISongs[]>([])
+
+useEffect(()=>{getSong()}, [search])
+
 
 
     const getSong = async () => {
