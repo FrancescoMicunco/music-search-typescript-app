@@ -14,3 +14,4 @@ export interface ISongs {
 export interface ISearch {
     search:string
 }
+

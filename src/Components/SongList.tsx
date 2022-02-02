@@ -48,7 +48,7 @@ useEffect(()=>{getSong()}, [search])
     <tr>
       <td>{s.preview}</td>
       <td>{s.artist.name}</td>
-      <td onClick={()=>navigate('/detail')} style={{cursor:"pointer"}}>{s.album.cover_small}</td>
+      <td onClick={()=>navigate(`/track/${s.id}`)} style={{cursor:"pointer"}}>{s.album.cover_small}</td>
       <td>{s.title}</td>
     </tr>
     
