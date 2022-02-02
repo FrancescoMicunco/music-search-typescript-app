@@ -1,5 +1,8 @@
 import './App.css';
 import{ BrowserRouter, Routes, Route} from 'react-router-dom'
+import { HomePage } from './Components/HomePage';
+import { Details } from './Components/DetailsPage';
+
 
 function App() {
   return (
@@ -7,14 +10,15 @@ function App() {
     <BrowserRouter>
     <div className="App">
       <header className="App-header">
-        <h1>Home</h1>
-      </header>
-    </div>
-    <Routes>
-      <Route path="/" element="<HomePage />"/>
-      <Route path="/detail" element="<DetailsPage />"/>
+        
+      <Routes>
+      <Route path="/" element={<HomePage />}/>
+      <Route path="/detail" element={<Details />}/>
       <Route path="*" element="Page Not found!"/>
     </Routes>
+      </header>
+    </div>
+    
     
     </BrowserRouter>
 
