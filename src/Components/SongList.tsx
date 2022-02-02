@@ -9,7 +9,7 @@ interface search {
 
 
 
-export const SongList = () => {
+export const SongList = ({search}:ISearch) => {
     const [songs, setSongs] = useState<ISongs[]>([])
 
 
@@ -34,7 +34,7 @@ export const SongList = () => {
 
 
 
-        
+
         <h1>This is the SongList</h1>
     )
 }
