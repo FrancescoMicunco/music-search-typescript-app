@@ -13,7 +13,7 @@ function App() {
         
       <Routes>
       <Route path="/" element={<HomePage />}/>
-      <Route path="/detail" element={<Details />}/>
+      <Route path="/track/:id" element={<Details />}/>
       <Route path="*" element="Page Not found!"/>
     </Routes>
       </header>
