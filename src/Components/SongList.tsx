@@ -19,7 +19,7 @@ useEffect(()=>{getSong()}, [search])
         try {
             let res = await fetch('https://striveschool-api.herokuapp.com/api/deezer/search?q=' + { search })
             if (res.ok) {
-                let data = await res.json()
+                let data = await res.json() as {data: ISongs[]}
                 setSongs(data)
             } else {
                 console.log("Something goes wrong fetching data")
