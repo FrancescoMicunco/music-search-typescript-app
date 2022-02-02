@@ -10,3 +10,7 @@ export interface ISongs {
         cover_small:string
     }
 }
+
+export interface ISearch {
+    search:string
+}

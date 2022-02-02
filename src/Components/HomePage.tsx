@@ -2,8 +2,12 @@ import { Container, Row, Col, Form } from 'react-bootstrap'
 import { SongList } from './SongList'
 import { useState } from 'react'
 
+
 export const HomePage = () => {
-const [songs, setSong]= useState([])
+    
+    const [search, setSearch] = useState('')
+console.log(search)
+
 
 
     return (
@@ -11,10 +15,17 @@ const [songs, setSong]= useState([])
             <Row>
                 <Col><h1>Easy Music Search Engine</h1></Col>
                 <Col>
-                <Form.Group>
-  <Form.Control size="lg" type="text" placeholder="Search" /></Form.Group>
-  </Col>
-                <Col><SongList /></Col>
+                    <Form.Group>
+                        <Form.Control 
+                            size="lg" 
+                            type="text" 
+                            placeholder="Search"
+                            value={search} 
+                            onChange={(e)=>{setSearch(e.target.value)}}/>
+                    </Form.Group>
+
+                </Col>
+                <Col><SongList search={search}/></Col>
             </Row>
         </Container>
 
