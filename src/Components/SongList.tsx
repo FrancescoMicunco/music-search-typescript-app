@@ -2,15 +2,11 @@ import { ISearch } from '../Types/SongsType'
 import { ISongs } from '../Types/SongsType'
 import { useState } from 'react'
 import { useEffect } from 'react'
-
-// interface search {
-//     search: ISearch
-// }
+import {Table} from 'react-bootstrap'
 
 
 
-
-export const SongList = ({search}:ISearch) => {
+ const SongList = ({search}:ISearch) => {
     const [songs, setSongs] = useState<ISongs[]>([])
 
 useEffect(()=>{getSong()}, [search])
@@ -24,7 +20,7 @@ useEffect(()=>{getSong()}, [search])
                 let data = await res.json()
                 setSongs(data)
             } else {
-                console.log("Somthing goes wrong fetching data")
+                console.log("Something goes wrong fetching data")
             }
 
         } catch (error) {
@@ -32,13 +28,37 @@ useEffect(()=>{getSong()}, [search])
         }
     }
 
-
-
     return (
+        songs?.map(s=>
+<>
 
-
-
-
-        <h1>This is the SongList</h1>
+<h2>This is the SongList of {s.artist.name} </h2>
+            <Table striped bordered hover variant="dark">
+  <thead>
+    <tr>
+      <th>preview</th>
+      <th>artist.name</th>
+      <th>album.cover_small</th>
+      <th>title</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{s.preview}</td>
+      <td>{s.artist.name}</td>
+      <td>{s.album.cover_small}</td>
+      <td>{s.title}</td>
+    </tr>
+    
+  </tbody>
+</Table>
+</>
+        
+            
+            
+            )
+        
     )
 }
+
+export default SongList

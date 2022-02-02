@@ -1,14 +1,11 @@
 import { Container, Row, Col, Form } from 'react-bootstrap'
-import { SongList } from './SongList'
+import  SongList  from './SongList'
 import { useState } from 'react'
 
 
 export const HomePage = () => {
     
     const [search, setSearch] = useState('')
-console.log(search)
-
-
 
     return (
         <Container>
@@ -25,7 +22,7 @@ console.log(search)
                     </Form.Group>
 
                 </Col>
-                <Col><SongList search={search}/></Col>
+                <Col><SongList search={search} /></Col>
             </Row>
         </Container>
 
